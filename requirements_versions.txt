@@ -1,12 +1,12 @@
 blendmodes==2022
 transformers==4.25.1
 accelerate==0.12.0
-basicsr==1.4.2
-gfpgan==1.3.8
+# basicsr==1.4.2  # Already installed, requires tb-nightly which is not available on macOS ARM
+# gfpgan==1.3.8  # Already installed, requires tb-nightly which is not available on macOS ARM
 gradio==3.16.2
 numpy==1.23.3
 Pillow==9.4.0
-realesrgan==0.3.0
+# realesrgan==0.3.0  # Depends on basicsr which requires tb-nightly
 torch
 omegaconf==2.2.3
 pytorch_lightning==1.7.6

@@ -3,7 +3,8 @@ import sys
 import traceback
 
 import facexlib
-import gfpgan
+# import gfpgan  # Disabled due to tb-nightly dependency issues on macOS ARM
+gfpgan_constructor = None  # Set to None since gfpgan is not available
 
 import modules.face_restoration
 from modules import paths, shared, devices, modelloader
@@ -19,6 +20,10 @@ loaded_gfpgan_model = None
 def gfpgann():
     global loaded_gfpgan_model
     global model_path
+    
+    # Return None if gfpgan is not available
+    return None
+    
     if loaded_gfpgan_model is not None:
         loaded_gfpgan_model.gfpgan.to(devices.device_gfpgan)
         return loaded_gfpgan_model

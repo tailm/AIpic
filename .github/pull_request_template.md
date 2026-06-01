@@ -1,4 +1,4 @@
-# Please read the [contributing wiki page](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Contributing) before submitting a pull request!
+# Please read the [contributing wiki page](https://github.com/tailm/AIpic/wiki/Contributing) before submitting a pull request!
 
 If you have a large change, pay special attention to this paragraph:
 

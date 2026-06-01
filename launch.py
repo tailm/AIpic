@@ -50,7 +50,7 @@ and delete current Python and "venv" folder in WebUI's directory.
 
 You can download 3.10 Python from here: https://www.python.org/downloads/release/python-3109/
 
-{"Alternatively, use a binary release of WebUI: https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases" if is_windows else ""}
+{"Alternatively, use a binary release of WebUI: https://github.com/tailm/AIpic/releases" if is_windows else ""}
 
 Use --skip-python-version-check to suppress this warning.
 """)
@@ -286,8 +286,9 @@ def prepare_environment():
     if not skip_torch_cuda_test:
         run_python("import torch; assert torch.cuda.is_available(), 'Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check'")
 
-    if not is_installed("gfpgan"):
-        run_pip(f"install {gfpgan_package}", "gfpgan")
+    # Skip GFPGAN installation due to tb-nightly dependency issues on macOS ARM
+    # if not is_installed("gfpgan"):
+    #     run_pip(f"install {gfpgan_package}", "gfpgan")
 
     if not is_installed("clip"):
         run_pip(f"install {clip_package}", "clip")
@@ -301,7 +302,7 @@ def prepare_environment():
                 run_pip(f"install -U -I --no-deps {xformers_package}", "xformers")
             else:
                 print("Installation of xformers is not supported in this version of Python.")
-                print("You can also check this and build manually: https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Xformers#building-xformers-on-windows-by-duckness")
+                print("You can also check this and build manually: https://github.com/tailm/AIpic/wiki/Xformers#building-xformers-on-windows-by-duckness")
                 if not is_installed("xformers"):
                     exit(0)
         elif platform.system() == "Linux":

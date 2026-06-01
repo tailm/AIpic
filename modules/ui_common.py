@@ -12,6 +12,7 @@ from modules.generation_parameters_copypaste import image_from_url_text
 import modules.images
 
 folder_symbol = '\U0001f4c2'  # 📂
+delete_symbol = '\U0001f5d1'  # 🗑️
 
 
 def update_generation_info(generation_info, html_info, img_index):
@@ -135,6 +136,7 @@ Requested path was: {f}
                 if tabname != "extras":
                     save = gr.Button('Save', elem_id=f'save_{tabname}')
                     save_zip = gr.Button('Zip', elem_id=f'save_zip_{tabname}')
+                    delete_button = gr.Button(delete_symbol, elem_id=f'delete_{tabname}', variant='secondary')
 
                 buttons = parameters_copypaste.create_buttons(["img2img", "inpaint", "extras"])
 
@@ -193,6 +195,23 @@ Requested path was: {f}
                         ]
                     )
 
+                    # 添加删除按钮点击事件
+                    delete_button.click(
+                        fn=call_queue.wrap_gradio_call(delete_image),
+                        _js="(x, y, z, w) => [x, y, selected_gallery_index(), arguments[3], arguments[4]]",
+                        inputs=[
+                            generation_info,
+                            result_gallery,
+                            html_info,
+                            gr.Textbox(tabname, visible=False),
+                            gr.Textbox(outdir, visible=False),
+                        ],
+                        outputs=[
+                            result_gallery,
+                            html_log,
+                        ]
+                    )
+
             else:
                 html_info_x = gr.HTML(elem_id=f'html_info_x_{tabname}')
                 html_info = gr.HTML(elem_id=f'html_info_{tabname}')
@@ -211,3 +230,83 @@ Requested path was: {f}
                 ))
 
             return result_gallery, generation_info if tabname != "extras" else html_info_x, html_info, html_log
+
+
+def delete_image(js_data, images, index, tabname, outdir):
+    """删除图片函数 - 从页面和文件夹中删除图片"""
+    import json
+    import os
+    
+    try:
+        # 解析 JSON 数据
+        data = json.loads(js_data)
+        
+        # 获取选中的图片索引
+        if index < 0:
+            return images, "请先选择一张图片"
+        
+        # 检查索引是否有效
+        if index >= len(images):
+            return images, f"无效的图片索引: {index}"
+        
+        # 获取图片数据
+        image_data = images[index]
+        
+        # 从页面删除图片
+        new_images = list(images)
+        new_images.pop(index)
+        
+        # 尝试从文件夹中删除图片文件
+        file_deleted = False
+        file_path = ""
+        
+        # 解析图片数据获取文件名
+        if isinstance(image_data, dict) and 'name' in image_data:
+            # 如果是文件对象
+            file_path = image_data['name']
+        elif isinstance(image_data, str):
+            # 如果是 base64 数据，尝试从保存的目录中查找
+            # 这里需要根据 tabname 确定输出目录
+            if tabname == "txt2img":
+                output_dir = shared.opts.outdir_txt2img_samples
+            elif tabname == "img2img":
+                output_dir = shared.opts.outdir_img2img_samples
+            else:
+                output_dir = outdir
+            
+            # 从生成信息中获取文件名
+            if 'infotexts' in data and index < len(data['infotexts']):
+                infotext = data['infotexts'][index]
+                # 从 infotext 中提取文件名
+                import re
+                match = re.search(r'Filename: ([^\n]+)', infotext)
+                if match:
+                    filename = match.group(1)
+                    file_path = os.path.join(output_dir, filename)
+        
+        # 如果找到了文件路径，尝试删除文件
+        if file_path and os.path.exists(file_path):
+            try:
+                os.remove(file_path)
+                file_deleted = True
+                # 同时删除对应的文本文件（如果有）
+                txt_file = os.path.splitext(file_path)[0] + '.txt'
+                if os.path.exists(txt_file):
+                    os.remove(txt_file)
+            except Exception as e:
+                print(f"删除文件失败: {e}")
+        
+        # 返回结果
+        message = "图片已从页面删除"
+        if file_deleted:
+            message += "，文件已从文件夹中删除"
+        elif file_path:
+            message += "，但无法从文件夹中删除文件"
+        else:
+            message += "，未找到对应的文件"
+        
+        return new_images, message
+        
+    except Exception as e:
+        print(f"删除图片时出错: {e}")
+        return images, f"删除失败: {str(e)}"

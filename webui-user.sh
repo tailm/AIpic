@@ -13,7 +13,7 @@
 #export COMMANDLINE_ARGS=""
 
 # python3 executable
-#python_cmd="python3"
+python_cmd="/Users/zwj/stable-diffusion-webui/venv/bin/python"
 
 # git executable
 #export GIT="git"
@@ -30,9 +30,12 @@
 # Requirements file to use for stable-diffusion-webui
 #export REQS_FILE="requirements_versions.txt"
 
+# Skip GFPGAN installation
+export GFPGAN_PACKAGE=""
+
 # Fixed git repos
 #export K_DIFFUSION_PACKAGE=""
-#export GFPGAN_PACKAGE=""
+export GFPGAN_PACKAGE="gfpgan==1.3.8"
 
 # Fixed git commits
 #export STABLE_DIFFUSION_COMMIT_HASH=""
