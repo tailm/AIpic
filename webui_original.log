@@ -1,102 +1,0 @@
-
-#################################################
-Checking port 7860 usage...
-#################################################
-自动检查端口 7860 占用情况...
-端口 7860 未被占用
-端口清理完成
-
-
-################################################################
-[1m[32mInstall script for stable-diffusion + Web UI
-[1m[34mTested on Debian 11 (Bullseye)[0m
-################################################################
-
-################################################################
-Running on [1m[32mzwj[0m user
-################################################################
-
-################################################################
-Repo already cloned, using it as install directory
-################################################################
-
-################################################################
-Create and activate python venv
-################################################################
-
-################################################################
-Launching launch.py...
-################################################################
-/Users/zwj/AIpic/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
-changing setting sd_model_checkpoint to sd3.5_medium.safetensors [11fe06e223]: RuntimeError
-Traceback (most recent call last):
-  File "/Users/zwj/AIpic/modules/shared.py", line 568, in set
-    self.data_labels[key].onchange()
-  File "/Users/zwj/AIpic/modules/call_queue.py", line 15, in f
-    res = func(*args, **kwargs)
-  File "/Users/zwj/AIpic/webui.py", line 146, in <lambda>
-    shared.opts.onchange("sd_model_checkpoint", wrap_queued_call(lambda: modules.sd_models.reload_model_weights()))
-  File "/Users/zwj/AIpic/modules/sd_models.py", line 501, in reload_model_weights
-    load_model_weights(sd_model, checkpoint_info, state_dict, timer)
-  File "/Users/zwj/AIpic/modules/sd_models.py", line 277, in load_model_weights
-    model.load_state_dict(state_dict, strict=False)
-  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1671, in load_state_dict
-    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
-RuntimeError: Error(s) in loading state_dict for LatentDiffusion:
-	size mismatch for first_stage_model.encoder.conv_out.weight: copying a param with shape torch.Size([32, 512, 3, 3]) from checkpoint, the shape in current model is torch.Size([8, 512, 3, 3]).
-	size mismatch for first_stage_model.encoder.conv_out.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([8]).
-	size mismatch for first_stage_model.decoder.conv_in.weight: copying a param with shape torch.Size([512, 16, 3, 3]) from checkpoint, the shape in current model is torch.Size([512, 4, 3, 3]).
-
-Python 3.10.9 (main, Jan 11 2023, 09:18:18) [Clang 14.0.6 ]
-Commit hash: dbc47579efcdc312d24e93943fa81f36f56afd1a
-Fetching updates for K-diffusion...
-Checking out commit for K-diffusion with hash: ...
-Installing requirements for Web UI
-Launching Web UI with arguments: --port 7860 --use-cpu all --no-half --precision full
-Warning: caught exception 'Torch not compiled with CUDA enabled', memory monitor disabled
-No module 'xformers'. Proceeding without it.
-GFPGAN not available, skipping...
-GFPGAN not available, skipping face restoration setup
-RealESRGAN not available, skipping...
-RealESRGAN not available, disabling...
-RealESRGAN not available, disabling...
-Loading weights [6ce0161689] from /Users/zwj/AIpic/models/Stable-diffusion/v1-5-pruned-emaonly.safetensors
-Creating model from config: /Users/zwj/AIpic/configs/v1-inference.yaml
-LatentDiffusion: Running in eps-prediction mode
-DiffusionWrapper has 859.52 M params.
-Applying cross attention optimization (InvokeAI).
-Textual inversion embeddings loaded(0): 
-Model loaded in 8.3s (create model: 0.7s, apply weights to model: 7.4s).
-Running on local URL:  http://127.0.0.1:7860
-
-To create a public link, set `share=True` in `launch()`.
-Startup time: 12.9s (import gradio: 1.8s, import ldm: 0.5s, other imports: 1.7s, load scripts: 0.2s, load SD checkpoint: 8.3s, create ui: 0.3s).
-Loading weights [11fe06e223] from /Users/zwj/AIpic/models/Stable-diffusion/sd3.5_medium.safetensors
-Failed to load checkpoint, restoring previous
-Loading weights [6ce0161689] from /Users/zwj/AIpic/models/Stable-diffusion/v1-5-pruned-emaonly.safetensors
-Applying cross attention optimization (InvokeAI).
-  0%|          | 0/20 [00:00<?, ?it/s]
-Total progress:   0%|          | 0/20 [00:00<?, ?it/s][A  5%|▌         | 1/20 [00:05<01:42,  5.38s/it]
-Total progress:  10%|█         | 2/20 [00:03<00:35,  1.99s/it][A 10%|█         | 2/20 [00:09<01:22,  4.56s/it]
-Total progress:  15%|█▌        | 3/20 [00:08<00:49,  2.91s/it][A 15%|█▌        | 3/20 [00:13<01:14,  4.39s/it]
-Total progress:  20%|██        | 4/20 [00:12<00:54,  3.38s/it][A 20%|██        | 4/20 [00:17<01:08,  4.30s/it]
-Total progress:  25%|██▌       | 5/20 [00:17<00:59,  3.95s/it][A 25%|██▌       | 5/20 [00:22<01:08,  4.57s/it]
-Total progress:  30%|███       | 6/20 [00:23<01:04,  4.59s/it][A 30%|███       | 6/20 [00:28<01:10,  5.01s/it]
-Total progress:  35%|███▌      | 7/20 [00:28<01:01,  4.77s/it][A 35%|███▌      | 7/20 [00:33<01:05,  5.05s/it]
-Total progress:  40%|████      | 8/20 [00:32<00:55,  4.65s/it][A 40%|████      | 8/20 [00:38<00:58,  4.85s/it]
-Total progress:  45%|████▌     | 9/20 [00:37<00:51,  4.66s/it][A 45%|████▌     | 9/20 [00:42<00:52,  4.79s/it]
-Total progress:  50%|█████     | 10/20 [00:43<00:49,  4.98s/it][A 50%|█████     | 10/20 [00:48<00:50,  5.07s/it]
-Total progress:  55%|█████▌    | 11/20 [00:47<00:42,  4.75s/it][A 55%|█████▌    | 11/20 [00:52<00:43,  4.81s/it]
-Total progress:  60%|██████    | 12/20 [00:51<00:36,  4.58s/it][A 60%|██████    | 12/20 [00:56<00:36,  4.62s/it]
-Total progress:  65%|██████▌   | 13/20 [00:55<00:31,  4.53s/it][A 65%|██████▌   | 13/20 [01:01<00:31,  4.56s/it]
-Total progress:  70%|███████   | 14/20 [01:00<00:26,  4.48s/it][A 70%|███████   | 14/20 [01:05<00:27,  4.50s/it]
-Total progress:  75%|███████▌  | 15/20 [01:04<00:21,  4.38s/it][A 75%|███████▌  | 15/20 [01:09<00:21,  4.40s/it]
-Total progress:  80%|████████  | 16/20 [01:08<00:17,  4.33s/it][A 80%|████████  | 16/20 [01:14<00:17,  4.34s/it]
-Total progress:  85%|████████▌ | 17/20 [01:13<00:13,  4.33s/it][A 85%|████████▌ | 17/20 [01:18<00:13,  4.34s/it]
-Total progress:  90%|█████████ | 18/20 [01:17<00:08,  4.34s/it][A 90%|█████████ | 18/20 [01:22<00:08,  4.34s/it]
-Total progress:  95%|█████████▌| 19/20 [01:21<00:04,  4.37s/it][A 95%|█████████▌| 19/20 [01:27<00:04,  4.37s/it]
-Total progress: 100%|██████████| 20/20 [01:26<00:00,  4.40s/it][A100%|██████████| 20/20 [01:31<00:00,  4.41s/it]100%|██████████| 20/20 [01:31<00:00,  4.59s/it]
-
-Total progress: 100%|██████████| 20/20 [01:34<00:00,  4.40s/it][ATotal progress: 100%|██████████| 20/20 [01:34<00:00,  4.70s/it]/Users/zwj/miniconda3/lib/python3.10/multiprocessing/resource_tracker.py:224: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '

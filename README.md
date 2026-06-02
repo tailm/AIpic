@@ -129,22 +129,7 @@ Find the instructions [here](https://github.com/tailm/AIpic/wiki/Installation-on
 
 After installing the WebUI, you need to download Stable Diffusion models to generate images. Here are some recommended models:
 
-### Stable Diffusion 3.5 Model
-```bash
-# Download Stable Diffusion 2.1 model (v2-1_768-ema-pruned.ckpt)
-curl -L -o models/stabilityai/sd3.5_medium.safetensors https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/main/sd3.5_medium.safetensors
-```
-
-### Stable Diffusion 3.5 Medium Turbo LoRA Model
-```bash
-# Download Stable Diffusion 3.5 Medium Turbo LoRA model
-curl -L -o models/Lora/lora_sd3.5m_4steps.safetensors https://huggingface.co/tensorart/stable-diffusion-3.5-medium-turbo/resolve/main/lora_sd3.5m_4steps.safetensors
-
-# Verify the download (check if file exists and get file info)
-curl -I "https://huggingface.co/tensorart/stable-diffusion-3.5-medium-turbo/resolve/main/lora_sd3.5m_4steps.safetensors"
-```
-
-### Other Popular Models
+### Popular Models
 - **Stable Diffusion 1.5**: [runwayml/stable-diffusion-v1-5](https://huggingface.co/runwayml/stable-diffusion-v1-5)
 - **Stable Diffusion XL**: [stabilityai/stable-diffusion-xl-base-1.0](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)
 - **Realistic Vision**: [SG161222/Realistic_Vision_V5.1](https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE)

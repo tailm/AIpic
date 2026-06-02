@@ -288,7 +288,7 @@ python fix_basicsr.py
 
 2. 更改端口号：
    ```bash
-   export COMMANDLINE_ARGS="--skip-torch-cuda-test --port 7862"
+   export COMMANDLINE_ARGS="--skip-torch-cuda-test --port 7860"
    ```
 
 ### 导入错误

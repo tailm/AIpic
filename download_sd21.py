@@ -69,7 +69,7 @@ def download_file(url, filename):
 
 def main():
     # Stable Diffusion 2.1 模型URL
-    model_url = "https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
+    model_url = "https://huggingface.co/sd2-community/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     
     # 保存路径
     save_path = "models/Stable-diffusion/v2-1_768-ema-pruned.ckpt"

@@ -85,7 +85,7 @@ export GFPGAN_PACKAGE=""
    - 运行修复脚本：`python fix_basicsr.py`
 
 3. **端口被占用**
-   - 更改端口号：`--port 7862`
+   - 更改端口号：`--port 7860`
 
 4. **内存不足**
    - 添加 `--medvram` 或 `--lowvram` 参数

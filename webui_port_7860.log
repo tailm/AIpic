@@ -3,12 +3,7 @@
 Checking port 7860 usage...
 #################################################
 自动检查端口 7860 占用情况...
-发现占用端口 7860 的进程: 1578
-5479
-正在自动结束这些进程...
-将被结束的进程:
-无法获取进程详细信息
-成功: 端口 7860 已释放
+端口 7860 未被占用
 端口清理完成
 
 
@@ -32,3 +27,6 @@ Create and activate python venv
 ################################################################
 Launching launch.py...
 ################################################################
+Checkpoint v2-1_768-ema-pruned.ckpt [ad2a33c361] not found; loading fallback v1-5-pruned-emaonly.safetensors [6ce0161689]
+/Users/zwj/AIpic/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(

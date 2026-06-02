@@ -1,4 +1,17 @@
 
+#################################################
+Checking port 7860 usage...
+#################################################
+自动检查端口 7860 占用情况...
+发现占用端口 7860 的进程: 21776
+正在自动结束这些进程...
+将被结束的进程:
+  PID USER COMMAND
+21776 zwj  /Users/zwj/AIpic/venv/bin/python launch.py
+成功: 端口 7860 已释放
+端口清理完成
+
+
 ################################################################
 [1m[32mInstall script for stable-diffusion + Web UI
 [1m[34mTested on Debian 11 (Bullseye)[0m
@@ -19,5 +32,3 @@ Create and activate python venv
 ################################################################
 Launching launch.py...
 ################################################################
-/Users/zwj/AIpic/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
-  warnings.warn(
