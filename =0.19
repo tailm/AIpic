@@ -1,0 +1,153 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting blendmodes
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/cf/42/69511f5c86d017a2e52a463be808eb63721c094e33172b52357449d4d0ea/blendmodes-2025-py3-none-any.whl (10 kB)
+Collecting accelerate
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/7e/46/02ac5e262d4af18054b3e922b2baedbb2a03289ee792162de60a865defc5/accelerate-1.13.0-py3-none-any.whl (383 kB)
+Collecting fonts
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/3e/6a/ff04b5b3d22389aa57d09989ea708b93ca8f09ff57828d1ffb12ae6424a6/fonts-0.0.3-py3-none-any.whl (4.2 kB)
+Collecting font-roboto
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/79/9d/1e44c56b126ade67ed034fc8ba5a75f3dc926dd339820755bb71899d59b5/font-roboto-0.0.1.tar.gz (2.4 MB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting gfpgan
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/80/a2/84bb50a2655fda1e6f35ae57399526051b8a8b96ad730aea82abeaac4de8/gfpgan-1.3.8-py3-none-any.whl (52 kB)
+Collecting gradio==3.16.2
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/67/c6/71bfe2c663052d6bfbb638b301d77f763b397f843dcd6ed6f9938288305d/gradio-3.16.2-py3-none-any.whl (14.2 MB)
+Collecting invisible-watermark
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/2b/57/18b5a914f6d7994dd349252873169e946dc824328e9a37fd15ed836deedc/invisible_watermark-0.2.0-py3-none-any.whl (1.6 MB)
+Collecting omegaconf
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/e3/94/1843518e420fa3ed6919835845df698c7e27e183cb997394e4a670973a65/omegaconf-2.3.0-py3-none-any.whl (79 kB)
+Collecting opencv-contrib-python
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/7e/4c/a45c96b9fe90b2c48ee604f5176eb7deb46ce7c2e87c8d819d2945dbcab6/opencv_contrib_python-4.13.0.92-cp37-abi3-macosx_13_0_arm64.whl (52.0 MB)
+Collecting piexif
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/2c/d8/6f63147dd73373d051c5eb049ecd841207f898f50a5a1d4378594178f6cf/piexif-1.1.3-py2.py3-none-any.whl (20 kB)
+Requirement already satisfied: Pillow in ./venv/lib/python3.10/site-packages (12.2.0)
+Collecting pytorch_lightning==1.7.7
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/00/eb/3b2152f9c3a50d265f3e75529254228ace8a86e9a4397f3004f1e3be7825/pytorch_lightning-1.7.7-py3-none-any.whl (708 kB)
+Collecting realesrgan
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b2/3e/e2f79917a04991b9237df264f7abab2b58cf94748e7acfb6677b55232ca1/realesrgan-0.3.0-py3-none-any.whl (26 kB)
+Collecting scikit-image
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/30/ca/ff4731289cbed63c94a0c9a5b672976603118de78ed21910d9060c82e859/scikit_image-0.25.2-cp310-cp310-macosx_12_0_arm64.whl (13.2 MB)
+Collecting timm==0.4.12
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/90/fc/606bc5cf46acac3aa9bd179b3954433c026aaf88ea98d6b19f5d14c336da/timm-0.4.12-py3-none-any.whl (376 kB)
+Collecting transformers==4.25.1
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/90/5b/02becd3e137fdacdc30c6442d04094d0b92e500f978df00b1a197b68fd2b/transformers-4.25.1-py3-none-any.whl (5.8 MB)
+Collecting einops
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/2a/09/f8d8f8f31e4483c10a906437b4ce31bdf3d6d417b73fe33f1a8b59e34228/einops-0.8.2-py3-none-any.whl (65 kB)
+Collecting jsonmerge
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/71/c2/1032d0dbc2152c45f3d1e582a72e68f41898de9665202392d9400dfa329d/jsonmerge-1.9.2-py3-none-any.whl (19 kB)
+Collecting clean-fid
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/70/56/0dfc83e0fe455cfe6272b23a65039b4101c63a4e7446801e26178b675fbf/clean_fid-0.1.35-py3-none-any.whl (26 kB)
+Collecting resize-right
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/1d/08/c5c0640a08d7b373f1175c536462862054ee32145dae457c89916cd568d2/resize_right-0.0.2-py3-none-any.whl (8.9 kB)
+Collecting torchdiffeq
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b9/35/537f64f2d0b3cfebaae0f903b4e3a3b239abcc99d0f73cb15b9cee9b8212/torchdiffeq-0.2.5-py3-none-any.whl (32 kB)
+Collecting kornia
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/79/d4/e9bd12b7b4cbd23b4dfb47e744ee1fa54d6d9c3c9bc406ec86c1be8c8307/kornia-0.8.2-py2.py3-none-any.whl (1.1 MB)
+Collecting lark
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/82/3d/14ce75ef66813643812f3093ab17e46d3a206942ce7376d31ec2d36229e7/lark-1.3.1-py3-none-any.whl (113 kB)
+Collecting inflection
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/59/91/aa6bde563e0085a02a435aa99b49ef75b0a4b062635e606dab23ce18d720/inflection-0.5.1-py2.py3-none-any.whl (9.5 kB)
+Collecting GitPython
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/20/7a/1c6e3562dfd8950adbb11ffbc65d21e7c89d01a6e4f137fa981056de25c5/gitpython-3.1.50-py3-none-any.whl (212 kB)
+Collecting torchsde
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/dd/1f/b67ebd7e19ffe259f05d3cf4547326725c3113d640c277030be3e9998d6f/torchsde-0.2.6-py3-none-any.whl (61 kB)
+Collecting safetensors
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/e8/00/374c0c068e30cd31f1e1b46b4b5738168ec79e7689ca82ee93ddfea05109/safetensors-0.7.0-cp38-abi3-macosx_11_0_arm64.whl (447 kB)
+Collecting psutil
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/80/c4/f5af4c1ca8c1eeb2e92ccca14ce8effdeec651d5ab6053c589b074eda6e1/psutil-7.2.2-cp36-abi3-macosx_11_0_arm64.whl (129 kB)
+Collecting altair>=4.2.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/ce/63/5dacc8d8306c715088b897a479e551bc0779fd2f0f26c97fec5e36542b4e/altair-6.1.0-py3-none-any.whl (796 kB)
+Collecting ffmpy
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/55/56/dd3669eccebb6d8ac81e624542ebd53fe6f08e1b8f2f8d50aeb7e3b83f99/ffmpy-1.0.0-py3-none-any.whl (5.6 kB)
+Requirement already satisfied: numpy in ./venv/lib/python3.10/site-packages (from gradio==3.16.2) (2.2.6)
+Collecting pydub
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/a6/53/d78dc063216e62fc55f6b2eebb447f6a4b0a59f55c8406376f76bf959b08/pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Collecting fastapi
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/e0/82/45359b62a067409bd929ae8a56b8ed13e5a8c8a61194b3c236920999ab83/fastapi-0.136.3-py3-none-any.whl (117 kB)
+Collecting aiohttp
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/6f/4d/926c183e06b09d5270a309eb50fbde7b09782bfd305dec1e800f329834fb/aiohttp-3.13.5-cp310-cp310-macosx_11_0_arm64.whl (497 kB)
+Collecting matplotlib
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/bb/2f/127081eb83162053ebb9678ceac64220b93a663e0167432566e9c7c82aab/matplotlib-3.10.9-cp310-cp310-macosx_11_0_arm64.whl (8.2 MB)
+Requirement already satisfied: requests in ./venv/lib/python3.10/site-packages (from gradio==3.16.2) (2.34.2)
+Collecting pycryptodome
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/db/6c/a1f71542c969912bb0e106f64f60a56cc1f0fabecf9396f45accbe63fa68/pycryptodome-3.23.0-cp37-abi3-macosx_10_9_universal2.whl (2.5 MB)
+Collecting pydantic
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/fd/7b/122376b1fd3c62c1ed9dc80c931ace4844b3c55407b6fb2d199377c9736f/pydantic-2.13.4-py3-none-any.whl (472 kB)
+Collecting websockets>=10.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/10/40/904a4cb30d9b61c0e278899bf36342e9b0208eb3c470324a9ecbaac2a30f/websockets-16.0-cp310-cp310-macosx_11_0_arm64.whl (175 kB)
+Collecting orjson
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/10/5d/b95ca542a001135cc250a49370f282f578c8f4e46cc8617d73775297eea8/orjson-3.11.9-cp310-cp310-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl (228 kB)
+Collecting httpx
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting markdown-it-py[linkify,plugins]
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b3/81/4da04ced5a082363ecfa159c010d200ecbd959ae410c10c0264a38cac0f5/markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Collecting pandas
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/13/4f/66d99628ff8ce7857aca52fed8f0066ce209f96be2fede6cef9f84e8d04f/pandas-2.3.3-cp310-cp310-macosx_11_0_arm64.whl (10.8 MB)
+Collecting aiofiles
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/bc/8a/340a1555ae33d7354dbca4faa54948d76d89a27ceef032c8c3bc661d003e/aiofiles-25.1.0-py3-none-any.whl (14 kB)
+Collecting uvicorn
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/01/be/72532be3da7acc5fdfbccdb95215cd04f995a0886532a5b423f929cda4cc/uvicorn-0.48.0-py3-none-any.whl (71 kB)
+Collecting pyyaml
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/05/14/52d505b5c59ce73244f59c7a50ecf47093ce4765f116cdb98286a71eeca2/pyyaml-6.0.3-cp310-cp310-macosx_11_0_arm64.whl (174 kB)
+Collecting jinja2
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Collecting python-multipart
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/1c/fd/0318007beb234790993d3ec5afd051d1dbceb733e81e3afe2b981ece3f37/python_multipart-0.0.30-py3-none-any.whl (29 kB)
+Collecting markupsafe
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/98/1b/fbd8eed11021cabd9226c37342fa6ca4e8a98d8188a8d9b66740494960e4/markupsafe-3.0.3-cp310-cp310-macosx_11_0_arm64.whl (12 kB)
+Collecting fsspec
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/d5/0c/043d5e551459da400957a1395e0febbf771446ff34291afcbe3d8be2a279/fsspec-2026.4.0-py3-none-any.whl (203 kB)
+Requirement already satisfied: typing-extensions in ./venv/lib/python3.10/site-packages (from gradio==3.16.2) (4.15.0)
+Collecting packaging>=17.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/df/b2/87e62e8c3e2f4b32e5fe99e0b86d576da1312593b39f47d8ceef365e95ed/packaging-26.2-py3-none-any.whl (100 kB)
+Collecting tqdm>=4.57.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/16/e1/3079a9ff9b8e11b846c6ac5c8b5bfb7ff225eee721825310c91b3b50304f/tqdm-4.67.3-py3-none-any.whl (78 kB)
+Collecting pyDeprecate>=0.3.1
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/20/79/c9cabd980a3d0d393bbcf1898764b6d7a4569f6ab45649c9051e0c7a75ef/pydeprecate-0.8.0-py3-none-any.whl (84 kB)
+Collecting tensorboard>=2.9.1
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/9c/d9/a5db55f88f258ac669a92858b70a714bbbd5acd993820b41ec4a96a4d77f/tensorboard-2.20.0-py3-none-any.whl (5.5 MB)
+Requirement already satisfied: torch>=1.9.* in ./venv/lib/python3.10/site-packages (from pytorch_lightning==1.7.7) (1.12.1)
+Collecting torchmetrics>=0.7.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/c3/a2/c7f6ebf546f8f644edf0f999aa98ece106986a77a7b922316bf6414ff825/torchmetrics-1.9.0-py3-none-any.whl (983 kB)
+Requirement already satisfied: torchvision in ./venv/lib/python3.10/site-packages (from timm==0.4.12) (0.13.1)
+Collecting tokenizers!=0.11.3,<0.14,>=0.11.1
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/70/68/0a450e4dc488031b82fcd869840c542b86aad4a07d0eca1d7e9cbb9d742e/tokenizers-0.13.3-cp310-cp310-macosx_12_0_arm64.whl (3.9 MB)
+Collecting huggingface-hub<1.0,>=0.10.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/a8/af/48ac8483240de756d2438c380746e7130d1c6f75802ef22f3c6d49982787/huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+Collecting regex!=2019.12.17
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/16/81/075930d9fa28c4ea1f53398dd015ee7c882f623539759113cda1257f4b82/regex-2026.5.9-cp310-cp310-macosx_11_0_arm64.whl (289 kB)
+Collecting filelock
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/81/47/dd9a212ef6e343a6857485ffe25bba537304f1913bdbed446a23f7f592e1/filelock-3.29.0-py3-none-any.whl (39 kB)
+Collecting aenum>=3.1.15
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/48/8d/1fe30c6fd8999b9d462547c4a1bb6690bda24af38f2913c4bec7decb81f2/aenum-3.1.17-py3-none-any.whl (165 kB)
+Collecting torch>=1.9.*
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/c2/b7/53fe0436586716ab7aecff41e26b9302d57c85ded481fd83a2cd741e6b4e/torch-2.12.0-cp310-cp310-macosx_14_0_arm64.whl (88.0 MB)
+Collecting opencv-python
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/fc/6f/5a28fef4c4a382be06afe3938c64cc168223016fa520c5abaf37e8862aa5/opencv_python-4.13.0.92-cp37-abi3-macosx_13_0_arm64.whl (46.2 MB)
+Collecting gfpgan
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/31/88/a7651885208ce76e16f41c41fa429133716a0828eac0335f513052962ada/gfpgan-1.3.7-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.5/58.5 kB 357.9 kB/s eta 0:00:00
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/7d/34/a708e205ec90e3639d61599f1fd305bf52da68676bf6d632cfafcaf0dcd9/gfpgan-1.3.6-py3-none-any.whl (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 kB 897.2 kB/s eta 0:00:00
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/c4/36/d611103427877ede4dc426e4c427ebd48f83882ca121f472a63f90b0077d/gfpgan-1.3.5-py3-none-any.whl (47 kB)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/65/70/f88a1631812ddb3f35e7c83de4037de47017e9a8c6fec972851f2c454eb1/gfpgan-1.3.4-py3-none-any.whl (47 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.5/47.5 kB 909.3 kB/s eta 0:00:00
+Collecting basicsr>=1.3.4.0
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/86/41/00a6b000f222f0fa4c6d9e1d6dcc9811a374cabb8abb9d408b77de39648c/basicsr-1.4.2.tar.gz (172 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting scipy
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/ea/b1/4deb37252311c1acff7f101f6453f0440794f51b6eacb1aad4459a134081/scipy-1.15.3-cp310-cp310-macosx_14_0_arm64.whl (22.4 MB)
+Collecting gfpgan
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/89/fc/09cb13338df3080d8037df1dd6c09c350d1380819aecd5d219fcb09e9fbc/gfpgan-1.3.2-py3-none-any.whl (47 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.5/47.5 kB 901.7 kB/s eta 0:00:00
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/f4/56/f41461020262ecd6a1a119686e7e172848cbb9b13efd85346c4196925ba5/gfpgan-1.3.1-py3-none-any.whl (47 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 47.4/47.4 kB 985.2 kB/s eta 0:00:00
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/3d/3c/e6bcf0e53ac4313f3dcc99853bae8df24e3a2fa7b55cc2ac2d6238288f60/gfpgan-1.3.0-py3-none-any.whl (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 925.8 kB/s eta 0:00:00
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d5/4e/c342257b6c4a8ead7a003219a967be8fdeeef4a2e649169aa2f2de623006/gfpgan-0.2.4-py3-none-any.whl (38 kB)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/fb/09/9ef642561e9da06a83bcb380377d2444e9bc372da538f66fa82511d10bab/gfpgan-0.2.3-py3-none-any.whl (36 kB)
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/66/5f/2460cd8e5c9943e02897ab5747235d8bfe21ffa3c96be701092566168fca/gfpgan-0.2.1.tar.gz (35 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'error'

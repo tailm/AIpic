@@ -115,7 +115,7 @@ def main():
     print("1. 访问: https://huggingface.co/tensorart/stable-diffusion-3.5-medium-turbo")
     print("2. 找到并下载文件: lora_sd3.5m_4steps.safetensors")
     print(f"3. 将文件保存到: {save_dir}/")
-    print("4. 重启 stable-diffusion-webui 服务")
+    print("4. 重启 AIpic 服务")
     
     return 1
 

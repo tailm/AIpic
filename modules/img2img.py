@@ -173,6 +173,19 @@ def img2img(id_task: str, mode: int, prompt: str, negative_prompt: str, prompt_s
     p.close()
 
     shared.total_tqdm.clear()
+    
+    # Clean up memory after image generation
+    try:
+        import gc
+        import torch
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        elif hasattr(torch, 'mps') and torch.mps.is_available():
+            torch.mps.empty_cache()
+        gc.collect()
+        print("Memory cleaned up after image generation")
+    except Exception as e:
+        print(f"Memory cleanup failed: {e}")
 
     generation_info_js = processed.js()
     if opts.samples_log_stdout:

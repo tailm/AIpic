@@ -19,6 +19,20 @@ then
     source ./webui-user.sh
 fi
 
+# Check and kill processes using port 7860 before starting
+PORT_CHECK_SCRIPT="auto_kill_port.sh"
+if [[ -f "$PORT_CHECK_SCRIPT" ]]; then
+    printf "\n%s\n" "#################################################"
+    printf "Checking port 7860 usage..."
+    printf "\n%s\n" "#################################################"
+    ./"$PORT_CHECK_SCRIPT"
+    printf "\n"
+else
+    printf "\n%s\n" "#################################################"
+    printf "Warning: Port check script not found: $PORT_CHECK_SCRIPT"
+    printf "\n%s\n" "#################################################"
+fi
+
 # Set defaults
 # Install directory without trailing slash
 if [[ -z "${install_dir}" ]]
@@ -29,7 +43,7 @@ fi
 # Name of the subdirectory (defaults to AIpic)
 if [[ -z "${clone_dir}" ]]
 then
-    clone_dir="stable-diffusion-webui"
+    clone_dir="AIpic"
 fi
 
 # python3 executable

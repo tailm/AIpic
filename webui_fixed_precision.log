@@ -1,0 +1,75 @@
+
+#################################################
+Checking port 7860 usage...
+#################################################
+自动检查端口 7860 占用情况...
+发现占用端口 7860 的进程: 1605
+正在自动结束这些进程...
+将被结束的进程:
+  PID USER COMMAND
+ 1605 zwj  /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/148.0.7778.215/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=utility --utility-sub-type=network.mojom.NetworkService --lang=zh-CN --service-sandbox-type=network --metrics-client-id=a6739087-2410-49a0-b4e9-1c302103c501 --shared-files --metrics-shmem-handle=1752395122,r,3319468014319671308,18236279586109693596,524288 --field-trial-handle=1718379636,r,12645168403335225173,17649002719381067464,262144 --variations-seed-version=20260528-010044.458000-production --pseudonymization-salt-handle=1935764596,r,15309477032177399616,8598827703976256051,4 --trace-process-track-uuid=3190708989122997041 --seatbelt-client=16
+成功: 端口 7860 已释放
+端口清理完成
+
+
+################################################################
+[1m[32mInstall script for stable-diffusion + Web UI
+[1m[34mTested on Debian 11 (Bullseye)[0m
+################################################################
+
+################################################################
+Running on [1m[32mzwj[0m user
+################################################################
+
+################################################################
+Repo already cloned, using it as install directory
+################################################################
+
+################################################################
+Create and activate python venv
+################################################################
+
+################################################################
+Launching launch.py...
+################################################################
+/Users/zwj/AIpic/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Python 3.10.9 (main, Jan 11 2023, 09:18:18) [Clang 14.0.6 ]
+Commit hash: dbc47579efcdc312d24e93943fa81f36f56afd1a
+Fetching updates for K-diffusion...
+Checking out commit for K-diffusion with hash: ...
+Installing requirements for Web UI
+Launching Web UI with arguments: --port 7860 --use-cpu all --no-half --precision full
+Warning: caught exception 'Torch not compiled with CUDA enabled', memory monitor disabled
+No module 'xformers'. Proceeding without it.
+GFPGAN not available, skipping...
+GFPGAN not available, skipping face restoration setup
+RealESRGAN not available, skipping...
+RealESRGAN not available, disabling...
+RealESRGAN not available, disabling...
+Loading weights [6ce0161689] from /Users/zwj/AIpic/models/Stable-diffusion/v1-5-pruned-emaonly.safetensors
+Creating model from config: /Users/zwj/AIpic/configs/v1-inference.yaml
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.
+Applying cross attention optimization (InvokeAI).
+Textual inversion embeddings loaded(0): 
+Model loaded in 7.9s (create model: 0.5s, apply weights to model: 7.3s).
+Traceback (most recent call last):
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/gradio/networking.py", line 119, in start_server
+    s.bind((LOCALHOST_NAME, server_port))
+OSError: [Errno 48] Address already in use
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/zwj/AIpic/launch.py", line 382, in <module>
+    start()
+  File "/Users/zwj/AIpic/launch.py", line 377, in start
+    webui.webui()
+  File "/Users/zwj/AIpic/webui.py", line 254, in webui
+    app, local_url, share_url = shared.demo.launch(
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/gradio/blocks.py", line 1374, in launch
+    server_name, server_port, local_url, app, server = networking.start_server(
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/gradio/networking.py", line 122, in start_server
+    raise OSError(
+OSError: Port 7860 is in use. If a gradio.Blocks is running on the port, you can close() it or gradio.close_all().

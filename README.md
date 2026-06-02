@@ -84,7 +84,7 @@ A browser interface based on Gradio library for Stable Diffusion.
 - API
 - Support for dedicated [inpainting model](https://github.com/runwayml/stable-diffusion#inpainting-with-stable-diffusion) by RunwayML.
 - via extension: [Aesthetic Gradients](https://github.com/AUTOMATIC1111/stable-diffusion-webui-aesthetic-gradients), a way to generate images with a specific aesthetic by using clip images embeds (implementation of [https://github.com/vicgalle/stable-diffusion-aesthetic-gradients](https://github.com/vicgalle/stable-diffusion-aesthetic-gradients))
-- [Stable Diffusion 2.0](https://github.com/Stability-AI/stablediffusion) support - see [wiki](https://github.com/tailm/AIpic/wiki/Features#stable-diffusion-20) for instructions
+- [Stable Diffusion 2.0](https://github.com/tailm/AIpic) support - see [wiki](https://github.com/tailm/AIpic/wiki/Features#stable-diffusion-20) for instructions
 - [Alt-Diffusion](https://arxiv.org/abs/2211.06679) support - see [wiki](https://github.com/tailm/AIpic/wiki/Features#alt-diffusion) for instructions
 - Now without any bad letters!
 - Load checkpoints in safetensors format
@@ -103,7 +103,7 @@ Alternatively, use online services (like Google Colab):
 ### Automatic Installation on Windows
 1. Install [Python 3.10.6](https://www.python.org/downloads/windows/), checking "Add Python to PATH"
 2. Install [git](https://git-scm.com/download/win).
-3. Download the stable-diffusion-webui repository, for example by running `git clone https://github.com/tailm/AIpic.git`.
+3. Download the AIpic repository, for example by running `git clone https://github.com/tailm/AIpic.git`.
 4. Run `webui-user.bat` from Windows Explorer as normal, non-administrator, user.
 
 ### Automatic Installation on Linux
@@ -116,11 +116,11 @@ sudo dnf install wget git python3
 # Arch-based:
 sudo pacman -S wget git python3
 ```
-2. To install in `/home/$(whoami)/stable-diffusion-webui/`, run:
+2. To install in `/home/$(whoami)/AIpic/`, run:
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh)
+bash <(wget -qO- https://github.com/tailm/AIpic/blob/master/webui.sh)
 ```
-3. Run `webui.sh`.
+1. Run `webui.sh`.
 ### Installation on Apple Silicon
 
 Find the instructions [here](https://github.com/tailm/AIpic/wiki/Installation-on-Apple-Silicon).
@@ -129,10 +129,10 @@ Find the instructions [here](https://github.com/tailm/AIpic/wiki/Installation-on
 
 After installing the WebUI, you need to download Stable Diffusion models to generate images. Here are some recommended models:
 
-### Stable Diffusion 2.1 Model
+### Stable Diffusion 3.5 Model
 ```bash
 # Download Stable Diffusion 2.1 model (v2-1_768-ema-pruned.ckpt)
-curl -L -o models/Stable-diffusion/v2-1_768-ema-pruned.ckpt https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt
+curl -L -o models/stabilityai/sd3.5_medium.safetensors https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/main/sd3.5_medium.safetensors
 ```
 
 ### Stable Diffusion 3.5 Medium Turbo LoRA Model

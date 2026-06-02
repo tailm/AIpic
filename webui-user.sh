@@ -7,13 +7,13 @@
 #install_dir="/home/$(whoami)"
 
 # Name of the subdirectory
-#clone_dir="stable-diffusion-webui"
+clone_dir="AIpic"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
-#export COMMANDLINE_ARGS=""
+export COMMANDLINE_ARGS="--skip-torch-cuda-test --port 7860 --use-cpu all --no-half --precision full"
 
 # python3 executable
-python_cmd="/Users/zwj/stable-diffusion-webui/venv/bin/python"
+python_cmd="/Users/zwj/AIpic/venv/bin/python"
 
 # git executable
 #export GIT="git"

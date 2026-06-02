@@ -5,7 +5,15 @@ import traceback
 import numpy as np
 from PIL import Image
 from basicsr.utils.download_util import load_file_from_url
-from realesrgan import RealESRGANer
+
+# Try to import realesrgan, but handle ImportError gracefully
+try:
+    from realesrgan import RealESRGANer
+    realesrgan_available = True
+except ImportError:
+    print("RealESRGAN not available, skipping...")
+    realesrgan_available = False
+    RealESRGANer = None
 
 from modules.upscaler import Upscaler, UpscalerData
 from modules.shared import cmd_opts, opts
@@ -16,9 +24,15 @@ class UpscalerRealESRGAN(Upscaler):
         self.name = "RealESRGAN"
         self.user_path = path
         super().__init__()
+        
+        if not realesrgan_available:
+            print("RealESRGAN not available, disabling...")
+            self.enable = False
+            self.scalers = []
+            return
+            
         try:
             from basicsr.archs.rrdbnet_arch import RRDBNet
-            from realesrgan import RealESRGANer
             from realesrgan.archs.srvgg_arch import SRVGGNetCompact
             self.enable = True
             self.scalers = []
@@ -76,6 +90,9 @@ class UpscalerRealESRGAN(Upscaler):
 
 
 def get_realesrgan_models(scaler):
+    if not realesrgan_available:
+        return []
+    
     try:
         from basicsr.archs.rrdbnet_arch import RRDBNet
         from realesrgan.archs.srvgg_arch import SRVGGNetCompact
@@ -127,3 +144,4 @@ def get_realesrgan_models(scaler):
     except Exception as e:
         print("Error making Real-ESRGAN models list:", file=sys.stderr)
         print(traceback.format_exc(), file=sys.stderr)
+        return []

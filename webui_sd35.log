@@ -1,0 +1,71 @@
+
+#################################################
+Checking port 7860 usage...
+#################################################
+自动检查端口 7860 占用情况...
+发现占用端口 7860 的进程: 25093
+正在自动结束这些进程...
+将被结束的进程:
+  PID USER COMMAND
+25093 zwj  /Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/148.0.7778.215/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper --type=utility --utility-sub-type=network.mojom.NetworkService --lang=zh-CN --service-sandbox-type=network --metrics-client-id=a6739087-2410-49a0-b4e9-1c302103c501 --shared-files --metrics-shmem-handle=1752395122,r,16285760360031266076,7324281277664140075,524288 --field-trial-handle=1718379636,r,12645168403335225173,17649002719381067464,262144 --variations-seed-version=20260528-010044.458000-production --pseudonymization-salt-handle=1935764596,r,15309477032177399616,8598827703976256051,4 --trace-process-track-uuid=3190709569151901572 --seatbelt-client=60
+成功: 端口 7860 已释放
+端口清理完成
+
+
+################################################################
+[1m[32mInstall script for stable-diffusion + Web UI
+[1m[34mTested on Debian 11 (Bullseye)[0m
+################################################################
+
+################################################################
+Running on [1m[32mzwj[0m user
+################################################################
+
+################################################################
+Repo already cloned, using it as install directory
+################################################################
+
+################################################################
+Create and activate python venv
+################################################################
+
+################################################################
+Launching launch.py...
+################################################################
+/Users/zwj/AIpic/venv/lib/python3.10/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+loading stable diffusion model: RuntimeError
+Traceback (most recent call last):
+  File "/Users/zwj/AIpic/webui.py", line 136, in initialize
+    modules.sd_models.load_model()
+  File "/Users/zwj/AIpic/modules/sd_models.py", line 436, in load_model
+    load_model_weights(sd_model, checkpoint_info, state_dict, timer)
+  File "/Users/zwj/AIpic/modules/sd_models.py", line 277, in load_model_weights
+    model.load_state_dict(state_dict, strict=False)
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1671, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for LatentDiffusion:
+	size mismatch for first_stage_model.encoder.conv_out.weight: copying a param with shape torch.Size([32, 512, 3, 3]) from checkpoint, the shape in current model is torch.Size([8, 512, 3, 3]).
+	size mismatch for first_stage_model.encoder.conv_out.bias: copying a param with shape torch.Size([32]) from checkpoint, the shape in current model is torch.Size([8]).
+	size mismatch for first_stage_model.decoder.conv_in.weight: copying a param with shape torch.Size([512, 16, 3, 3]) from checkpoint, the shape in current model is torch.Size([512, 4, 3, 3]).
+
+
+Stable diffusion model failed to load, exiting
+Python 3.10.9 (main, Jan 11 2023, 09:18:18) [Clang 14.0.6 ]
+Commit hash: dbc47579efcdc312d24e93943fa81f36f56afd1a
+Fetching updates for K-diffusion...
+Checking out commit for K-diffusion with hash: ...
+Installing requirements for Web UI
+Launching Web UI with arguments: --port 7860 --use-cpu all --no-half --precision full
+Warning: caught exception 'Torch not compiled with CUDA enabled', memory monitor disabled
+No module 'xformers'. Proceeding without it.
+GFPGAN not available, skipping...
+GFPGAN not available, skipping face restoration setup
+RealESRGAN not available, skipping...
+RealESRGAN not available, disabling...
+RealESRGAN not available, disabling...
+Calculating sha256 for /Users/zwj/AIpic/models/Stable-diffusion/sd3.5_medium.safetensors: 11fe06e22364b823dfeedc275912336b932b32a293a0b2f35ffac071990cc4de
+Loading weights [11fe06e223] from /Users/zwj/AIpic/models/Stable-diffusion/sd3.5_medium.safetensors
+Creating model from config: /Users/zwj/AIpic/configs/v1-inference.yaml
+LatentDiffusion: Running in eps-prediction mode
+DiffusionWrapper has 859.52 M params.

@@ -4,7 +4,64 @@ import shutil
 import importlib
 from urllib.parse import urlparse
 
-from basicsr.utils.download_util import load_file_from_url
+try:
+    from basicsr.utils.download_util import load_file_from_url
+except ImportError:
+    # Fallback implementation if basicsr doesn't have load_file_from_url
+    import requests
+    import hashlib
+    import tempfile
+    from tqdm import tqdm
+    
+    def load_file_from_url(url, model_dir, progress=True, file_name=None):
+        """Download a file from url into model_dir.
+        
+        Args:
+            url (str): URL to download from.
+            model_dir (str): Directory to download to.
+            progress (bool): Whether to show progress bar.
+            file_name (str): Name of the file to save as.
+            
+        Returns:
+            str: Path to the downloaded file.
+        """
+        os.makedirs(model_dir, exist_ok=True)
+        
+        if file_name is None:
+            # Extract filename from URL
+            file_name = os.path.basename(url)
+            # Remove query parameters
+            file_name = file_name.split('?')[0]
+            # If no filename in URL, use hash
+            if not file_name or '.' not in file_name:
+                file_name = hashlib.md5(url.encode()).hexdigest() + '.pth'
+        
+        file_path = os.path.join(model_dir, file_name)
+        
+        # Skip if file already exists
+        if os.path.exists(file_path):
+            return file_path
+        
+        # Download file
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+        
+        total_size = int(response.headers.get('content-length', 0))
+        
+        with open(file_path, 'wb') as f:
+            if progress and total_size > 0:
+                with tqdm(total=total_size, unit='B', unit_scale=True, desc=file_name) as pbar:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
+                            pbar.update(len(chunk))
+            else:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+        
+        return file_path
+
 from modules import shared
 from modules.upscaler import Upscaler, UpscalerLanczos, UpscalerNearest, UpscalerNone
 from modules.paths import script_path, models_path

@@ -82,18 +82,33 @@ def setup_model(dirname):
         os.makedirs(model_path)
 
     try:
-        from gfpgan import GFPGANer
+        # Try to import gfpgan, but handle ImportError gracefully
+        try:
+            from gfpgan import GFPGANer
+            gfpgan_available = True
+        except ImportError:
+            print("GFPGAN not available, skipping...")
+            gfpgan_available = False
+            GFPGANer = None
+        
         from facexlib import detection, parsing
         global user_path
         global have_gfpgan
         global gfpgan_constructor
 
-        load_file_from_url_orig = gfpgan.utils.load_file_from_url
+        if gfpgan_available:
+            load_file_from_url_orig = gfpgan.utils.load_file_from_url
+            
+            def my_load_file_from_url(**kwargs):
+                return load_file_from_url_orig(**dict(kwargs, model_dir=model_path))
+            
+            gfpgan.utils.load_file_from_url = my_load_file_from_url
+            gfpgan_constructor = GFPGANer
+        else:
+            gfpgan_constructor = None
+        
         facex_load_file_from_url_orig = facexlib.detection.load_file_from_url
         facex_load_file_from_url_orig2 = facexlib.parsing.load_file_from_url
-
-        def my_load_file_from_url(**kwargs):
-            return load_file_from_url_orig(**dict(kwargs, model_dir=model_path))
 
         def facex_load_file_from_url(**kwargs):
             return facex_load_file_from_url_orig(**dict(kwargs, save_dir=model_path, model_dir=None))
@@ -101,21 +116,22 @@ def setup_model(dirname):
         def facex_load_file_from_url2(**kwargs):
             return facex_load_file_from_url_orig2(**dict(kwargs, save_dir=model_path, model_dir=None))
 
-        gfpgan.utils.load_file_from_url = my_load_file_from_url
         facexlib.detection.load_file_from_url = facex_load_file_from_url
         facexlib.parsing.load_file_from_url = facex_load_file_from_url2
         user_path = dirname
-        have_gfpgan = True
-        gfpgan_constructor = GFPGANer
+        have_gfpgan = gfpgan_available
 
-        class FaceRestorerGFPGAN(modules.face_restoration.FaceRestoration):
-            def name(self):
-                return "GFPGAN"
+        if gfpgan_available:
+            class FaceRestorerGFPGAN(modules.face_restoration.FaceRestoration):
+                def name(self):
+                    return "GFPGAN"
 
-            def restore(self, np_image):
-                return gfpgan_fix_faces(np_image)
+                def restore(self, np_image):
+                    return gfpgan_fix_faces(np_image)
 
-        shared.face_restorers.append(FaceRestorerGFPGAN())
+            shared.face_restorers.append(FaceRestorerGFPGAN())
+        else:
+            print("GFPGAN not available, skipping face restoration setup")
     except Exception:
         print("Error setting up GFPGAN:", file=sys.stderr)
         print(traceback.format_exc(), file=sys.stderr)

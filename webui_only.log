@@ -1,0 +1,67 @@
+
+#################################################
+Checking port 7860 usage...
+#################################################
+自动检查端口 7860 占用情况...
+端口 7860 未被占用
+端口清理完成
+
+
+################################################################
+[1m[32mInstall script for stable-diffusion + Web UI
+[1m[34mTested on Debian 11 (Bullseye)[0m
+################################################################
+
+################################################################
+Running on [1m[32mzwj[0m user
+################################################################
+
+################################################################
+Repo already cloned, using it as install directory
+################################################################
+
+################################################################
+Create and activate python venv
+################################################################
+
+################################################################
+Launching launch.py...
+################################################################
+/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: Could not load this library: /Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/image.so
+  warn(f"Failed to load image Python extension: {e}")
+Python 3.10.9 (main, Jan 11 2023, 09:18:18) [Clang 14.0.6 ]
+Commit hash: dbc47579efcdc312d24e93943fa81f36f56afd1a
+Fetching updates for K-diffusion...
+Checking out commit for K-diffusion with hash: ...
+Installing requirements for Web UI
+Launching Web UI with arguments: --port 7860 --use-cpu all --no-half --precision full
+Traceback (most recent call last):
+  File "/Users/zwj/AIpic/launch.py", line 382, in <module>
+    start()
+  File "/Users/zwj/AIpic/launch.py", line 373, in start
+    import webui
+  File "/Users/zwj/AIpic/webui.py", line 25, in <module>
+    import ldm.modules.encoders.modules
+  File "/Users/zwj/AIpic/repositories/stable-diffusion-stability-ai/ldm/modules/encoders/modules.py", line 7, in <module>
+    import open_clip
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/open_clip/__init__.py", line 2, in <module>
+    from .factory import create_model, create_model_and_transforms, create_model_from_pretrained, get_tokenizer
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/open_clip/factory.py", line 13, in <module>
+    from .model import CLIP, CustomTextCLIP, convert_weights_to_lp, convert_to_custom_text_state_dict,\
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/open_clip/model.py", line 17, in <module>
+    from .modified_resnet import ModifiedResNet
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/open_clip/modified_resnet.py", line 7, in <module>
+    from open_clip.utils import freeze_batch_norm_2d
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/open_clip/utils.py", line 5, in <module>
+    from torchvision.ops.misc import FrozenBatchNorm2d
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/__init__.py", line 5, in <module>
+    from torchvision import datasets, io, models, ops, transforms, utils
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/models/__init__.py", line 2, in <module>
+    from .convnext import *
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/models/convnext.py", line 8, in <module>
+    from ..ops.misc import Conv2dNormActivation, Permute
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/ops/__init__.py", line 30, in <module>
+    _register_custom_op()
+  File "/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torchvision/ops/_register_onnx_ops.py", line 12, in _register_custom_op
+    from torch.onnx.symbolic_opset9 import _cast_Long
+ImportError: cannot import name '_cast_Long' from 'torch.onnx.symbolic_opset9' (/Users/zwj/AIpic/venv/lib/python3.10/site-packages/torch/onnx/symbolic_opset9.py)
