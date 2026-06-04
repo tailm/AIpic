@@ -63,16 +63,20 @@ check_config() {
         print_warning "未找到 --listen 参数"
     fi
     
-    if [[ "$COMMANDLINE_ARGS" =~ --server-name[= ]([^ ]+) ]]; then
+    # Extract server name using sed (more compatible)
+    local extracted_name=$(echo "$COMMANDLINE_ARGS" | sed -n 's/.*--server-name[= ]\([^ ]\+\).*/\1/p')
+    if [ -n "$extracted_name" ]; then
         has_server_name=true
-        server_name="${BASH_REMATCH[1]}"
+        server_name="$extracted_name"
         print_success "找到 --server-name 参数: $server_name"
     else
         print_warning "未找到 --server-name 参数"
     fi
     
-    if [[ "$COMMANDLINE_ARGS" =~ --port[= ]([0-9]+) ]]; then
-        port="${BASH_REMATCH[1]}"
+    # Extract port using sed (more compatible)
+    local extracted_port=$(echo "$COMMANDLINE_ARGS" | sed -n 's/.*--port[= ]\([0-9]\+\).*/\1/p')
+    if [ -n "$extracted_port" ] && [ "$extracted_port" -eq "$extracted_port" ] 2>/dev/null; then
+        port="$extracted_port"
         print_success "端口号: $port"
     else
         print_info "使用默认端口: $port"

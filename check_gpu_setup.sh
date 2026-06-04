@@ -515,7 +515,7 @@ main() {
     echo ""
     print_info "--- PyTorch CUDA支持检查 ---"
     if ! check_pytorch_cuda; then
-        print_error "PyTorch CUDA支持检查失败")
+        print_error "PyTorch CUDA支持检查失败"
         return 1
     fi
     

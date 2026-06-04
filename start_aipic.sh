@@ -263,16 +263,24 @@ show_network_info() {
         if [[ "${COMMANDLINE_ARGS:-}" == *"--listen"* ]] && [[ "${COMMANDLINE_ARGS:-}" == *"--server-name"* ]]; then
             print_success "  LAN Access: Enabled"
             
-            # Extract port
+            # Extract port using grep and sed (more compatible)
             local port="7860"
-            if [[ "$COMMANDLINE_ARGS" =~ --port[= ]([0-9]+) ]]; then
-                port="${BASH_REMATCH[1]}"
+            if echo "$COMMANDLINE_ARGS" | grep -q -- "--port"; then
+                # Extract port number after --port
+                local extracted_port=$(echo "$COMMANDLINE_ARGS" | sed -n 's/.*--port[= ]\([0-9]\+\).*/\1/p')
+                if [ -n "$extracted_port" ] && [ "$extracted_port" -eq "$extracted_port" ] 2>/dev/null; then
+                    port="$extracted_port"
+                fi
             fi
             
-            # Extract server name
+            # Extract server name using grep and sed (more compatible)
             local server_name="0.0.0.0"
-            if [[ "$COMMANDLINE_ARGS" =~ --server-name[= ]([^ ]+) ]]; then
-                server_name="${BASH_REMATCH[1]}"
+            if echo "$COMMANDLINE_ARGS" | grep -q -- "--server-name"; then
+                # Extract server name after --server-name
+                local extracted_name=$(echo "$COMMANDLINE_ARGS" | sed -n 's/.*--server-name[= ]\([^ ]\+\).*/\1/p')
+                if [ -n "$extracted_name" ]; then
+                    server_name="$extracted_name"
+                fi
             fi
             
             print_info "  Access URLs:"
@@ -331,9 +339,9 @@ parse_arguments() {
     if [[ ! "$args" == *"--port"* ]]; then
         args="$args --port $PORT"
     else
-        # Extract port from args if already set
-        local port_in_args=$(echo "$args" | grep -o -- "--port[= ][0-9]*" | grep -o "[0-9]*" | head -1)
-        if [ -n "$port_in_args" ]; then
+        # Extract port from args if already set (more compatible method)
+        local port_in_args=$(echo "$args" | sed -n 's/.*--port[= ]\([0-9]\+\).*/\1/p' | head -1)
+        if [ -n "$port_in_args" ] && [ "$port_in_args" -eq "$port_in_args" ] 2>/dev/null; then
             PORT="$port_in_args"
         fi
     fi
