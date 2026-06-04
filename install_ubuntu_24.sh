@@ -190,7 +190,6 @@ install_system_dependencies() {
         python3.13 \
         python3.13-dev \
         python3.13-venv \
-        python3.13-distutils \
         python3-pip
     
     # Install multimedia libraries

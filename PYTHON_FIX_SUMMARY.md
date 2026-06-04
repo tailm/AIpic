@@ -57,7 +57,6 @@ sudo apt install -y \
     python3.13 \
     python3.13-dev \
     python3.13-venv \
-    python3.13-distutils \
     python3-pip
 ```
 
@@ -135,7 +134,7 @@ sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt update
 
 # 2. 安装Python 3.13
-sudo apt install -y python3.13 python3.13-venv python3.13-dev python3.13-distutils
+sudo apt install -y python3.13 python3.13-venv python3.13-dev
 
 # 3. 验证安装
 python3.13 --version
