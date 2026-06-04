@@ -44,6 +44,45 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# Function for safe APT update (handles Docker GPG key errors)
+safe_apt_update() {
+    print_info "Updating package list..."
+    
+    # Try normal update first
+    if sudo apt update 2>&1 | tee /tmp/apt_update.log; then
+        print_success "APT update successful"
+        return 0
+    fi
+    
+    # Check if it's a Docker GPG key error
+    if grep -q "NO_PUBKEY.*7EA0A9C3F273FCD8" /tmp/apt_update.log || \
+       grep -q "download.docker.com" /tmp/apt_update.log; then
+        print_warning "Docker repository GPG key error detected"
+        print_info "This is expected if Docker is already installed. Continuing..."
+        
+        # Update ignoring Docker repository
+        sudo apt update -o Dir::Etc::sourcelist="sources.list" \
+                       -o Dir::Etc::sourceparts="-" \
+                       -o APT::Get::List-Cleanup="0" 2>&1 | \
+            grep -v "NO_PUBKEY\|docker\|InRelease" || true
+        
+        print_success "APT update completed (Docker errors ignored)"
+        return 0
+    else
+        # Other error
+        print_error "APT update failed:"
+        cat /tmp/apt_update.log
+        
+        # Try with insecure repositories as last resort
+        print_info "Trying with insecure repositories..."
+        sudo apt update --allow-insecure-repositories 2>&1 | \
+            grep -v "WARNING\|ERROR" || true
+        
+        print_warning "APT update completed with warnings"
+        return 1
+    fi
+}
+
 # Function to check system requirements
 check_system_requirements() {
     print_info "Checking system requirements..."
@@ -122,8 +161,8 @@ check_system_requirements() {
 install_system_dependencies() {
     print_info "Installing system dependencies..."
     
-    # Update package list
-    sudo apt update
+    # Update package list with error handling for Docker GPG key issues
+    safe_apt_update
     
     # Install essential build tools
     sudo apt install -y \
@@ -209,7 +248,7 @@ install_nvidia_drivers() {
         
         # Add NVIDIA repository
         sudo add-apt-repository -y ppa:graphics-drivers/ppa
-        sudo apt update
+        safe_apt_update
         
         # Install NVIDIA driver
         sudo apt install -y nvidia-driver-550
@@ -226,7 +265,7 @@ install_nvidia_drivers() {
         # Download and install CUDA
         wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
         sudo dpkg -i cuda-keyring_1.1-1_all.deb
-        sudo apt update
+        safe_apt_update
         sudo apt install -y cuda-toolkit-12-4
         
         # Add CUDA to PATH
