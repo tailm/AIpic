@@ -3,7 +3,7 @@
 #################################################
 # AIpic - Stable Diffusion Web UI
 # Ubuntu 24.04 Installation Script
-# Optimized for Python 3.13 and NVIDIA RTX 4070 16GB
+# Optimized for Python 3.10 and NVIDIA RTX 4070 16GB
 #################################################
 
 set -e  # Exit on error
@@ -18,7 +18,7 @@ NC='\033[0m' # No Color
 # Configuration
 INSTALL_DIR="$HOME"
 CLONE_DIR="AIpic"
-PYTHON_CMD="python3.13"
+PYTHON_CMD="python3.10"
 VENV_DIR="venv"
 PORT=7860
 
@@ -97,20 +97,16 @@ check_system_requirements() {
         PYTHON_VERSION=$($PYTHON_CMD --version 2>&1 | cut -d' ' -f2)
         print_info "Found Python $PYTHON_VERSION"
         
-        # Check if Python 3.13 or higher
-        if [[ "$PYTHON_VERSION" < "3.13" ]]; then
-            print_error "Python 3.13 or higher is required. Found $PYTHON_VERSION"
-            print_info "To install Python 3.13:"
-            print_info "  sudo add-apt-repository ppa:deadsnakes/ppa"
-            print_info "  sudo apt update"
-            print_info "  sudo apt install python3.13 python3.13-venv python3.13-dev"
+        # Check if Python 3.10 or higher
+        if [[ "$PYTHON_VERSION" < "3.10" ]]; then
+            print_error "Python 3.10 or higher is required. Found $PYTHON_VERSION"
+            print_info "To install Python 3.10:"
+            print_info "  sudo apt install python3.10 python3.10-venv python3.10-dev"
             exit 1
         fi
     else
-        print_error "Python 3.13 not found. Please install it first:"
-        print_info "  sudo add-apt-repository ppa:deadsnakes/ppa"
-        print_info "  sudo apt update"
-        print_info "  sudo apt install python3.13 python3.13-venv python3.13-dev"
+        print_error "Python 3.10 not found. Please install it first:"
+        print_info "  sudo apt install python3.10 python3.10-venv python3.10-dev"
         exit 1
     fi
     
@@ -189,9 +185,9 @@ install_system_dependencies() {
     
     # Install Python development packages
     sudo apt install -y \
-        python3.13-dev \
-        python3.13-venv \
-        python3.13-distutils \
+        python3.10-dev \
+        python3.10-venv \
+        python3.10-distutils \
         python3-pip
     
     # Install multimedia libraries
@@ -672,7 +668,7 @@ EOF
 # clone_dir="AIpic"
 
 # Python command
-# python_cmd="python3.13"
+# python_cmd="python3.10"
 
 # Python venv location (no trailing slash)
 # venv_dir="venv"
@@ -887,7 +883,7 @@ create_startup_script() {
 
 #################################################
 # AIpic Startup Script
-# Optimized for Ubuntu 24.04 + Python 3.13 + RTX 4070
+# Optimized for Ubuntu 24.04 + Python 3.10 + RTX 4070
 #################################################
 
 set -e
@@ -1084,7 +1080,7 @@ main() {
     echo ""
     print_success "================================================"
     print_success "AIpic Installation for Ubuntu 24.04"
-    print_success "Optimized for Python 3.13 + NVIDIA RTX 4070 16GB"
+    print_success "Optimized for Python 3.10 + NVIDIA RTX 4070 16GB"
     print_success "================================================"
     echo ""
     

@@ -270,7 +270,7 @@ create_fixed_install_script() {
 # AIpic - Stable Diffusion Web UI
 # Ubuntu 24.04 Installation Script (修复版)
 # 修复了Docker GPG密钥错误，跳过Docker安装
-# Optimized for Python 3.13 and NVIDIA RTX 4070 16GB
+# Optimized for Python 3.10 and NVIDIA RTX 4070 16GB
 #################################################
 
 set -e  # Exit on error
@@ -285,7 +285,7 @@ NC='\033[0m' # No Color
 # 配置
 INSTALL_DIR="$HOME"
 CLONE_DIR="AIpic"
-PYTHON_CMD="python3.13"
+PYTHON_CMD="python3.10"
 VENV_DIR="venv"
 PORT=7860
 
@@ -359,12 +359,12 @@ check_system_requirements() {
         exit 1
     fi
     
-    # 检查Python 3.13
-    if command_exists python3.13; then
-        print_success "Python 3.13 已安装"
+    # 检查Python 3.10
+    if command_exists python3.10; then
+        print_success "Python 3.10 已安装"
     else
-        print_warning "Python 3.13 未安装"
-        print_info "将安装 Python 3.13"
+        print_warning "Python 3.10 未安装"
+        print_info "将安装 Python 3.10"
     fi
     
     # 检查NVIDIA驱动
@@ -425,9 +425,9 @@ install_system_dependencies() {
     
     # 安装Python开发包
     sudo apt install -y \
-        python3.13-dev \
-        python3.13-venv \
-        python3.13-distutils \
+        python3.10-dev \
+        python3.10-venv \
+        python3.10-distutils \
         python3-pip
     
     # 安装多媒体库

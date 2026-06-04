@@ -3,7 +3,7 @@
 
 ## 概述
 
-本文档提供在 Ubuntu 24.04 系统上部署 AIpic（Stable Diffusion Web UI）的完整指南，特别针对 Python 3.10 和 NVIDIA RTX 4070 16GB GPU 进行优化。
+本文档提供在 Ubuntu 24.04 系统上部署 AIpic（Stable Diffusion Web UI）的完整指南，特别针对 Python 3.13 和 NVIDIA RTX 4070 16GB GPU 进行优化。
 
 ## 系统要求
 
@@ -16,7 +16,7 @@
 
 ### 软件要求
 - **操作系统**: Ubuntu 24.04 LTS
-- **Python**: 3.10 或更高版本
+- **Python**: 3.13 或更高版本
 - **CUDA**: 12.1 或更高版本
 - **cuDNN**: 8.9 或更高版本
 - **NVIDIA驱动**: 550 或更高版本
@@ -59,9 +59,9 @@ sudo apt install -y \
     curl \
     cmake \
     pkg-config \
-    python3.10 \
-    python3.10-venv \
-    python3.10-dev \
+    python3.13 \
+    python3.13-venv \
+    python3.13-dev \
     python3-pip
 
 # 安装多媒体库
@@ -124,7 +124,7 @@ cd AIpic
 #### 步骤4：设置Python虚拟环境
 ```bash
 # 创建虚拟环境
-python3.10 -m venv venv
+python3.13 -m venv venv
 
 # 激活虚拟环境
 source venv/bin/activate
