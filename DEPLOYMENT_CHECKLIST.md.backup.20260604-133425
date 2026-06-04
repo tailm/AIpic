@@ -10,7 +10,7 @@
 
 ### 软件要求检查
 - [ ] **操作系统**: Ubuntu 24.04 LTS（推荐）或其他Linux发行版
-- [ ] **Python**: 3.13-3.13
+- [ ] **Python**: 3.10-3.13
 - [ ] **CUDA**: 11.8 或 12.1
 - [ ] **NVIDIA驱动**: ≥525.60.11
 
@@ -94,7 +94,7 @@ cat webui-user.sh | grep COMMANDLINE_ARGS
 ```bash
 # 验证Python环境
 python --version
-# 应该输出：Python 3.13+ 
+# 应该输出：Python 3.10+ 
 
 # 验证PyTorch CUDA
 python -c "import torch; print('PyTorch:', torch.__version__); print('CUDA:', torch.cuda.is_available())"

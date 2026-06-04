@@ -2,7 +2,7 @@
 
 ## 概述
 
-本套件为AIpic（Stable Diffusion Web UI）在Ubuntu 24.04系统上的安装和部署提供完整的解决方案，特别针对Python 3.13和NVIDIA RTX 4070 16GB GPU进行优化。
+本套件为AIpic（Stable Diffusion Web UI）在Ubuntu 24.04系统上的安装和部署提供完整的解决方案，特别针对Python 3.10和NVIDIA RTX 4070 16GB GPU进行优化。
 
 ## 文件说明
 
@@ -102,7 +102,7 @@ chmod +x install_ubuntu_24.sh
 1. **安装系统依赖**
    ```bash
    sudo apt update
-   sudo apt install -y python3.13 python3.13-venv python3.13-dev git wget
+   sudo apt install -y python3.10 python3.10-venv python3.10-dev git wget
    ```
 
 2. **安装NVIDIA驱动和CUDA**
@@ -119,7 +119,7 @@ chmod +x install_ubuntu_24.sh
 
 4. **设置虚拟环境**
    ```bash
-   python3.13 -m venv venv
+   python3.10 -m venv venv
    source venv/bin/activate
    pip install --upgrade pip
    ```
@@ -158,7 +158,7 @@ chmod +x install_ubuntu_24.sh
 - **RAM**: 32GB或以上
 - **GPU**: NVIDIA RTX 4070 16GB或更高
 - **存储**: 100GB SSD
-- **Python**: 3.13或更高版本
+- **Python**: 3.10或更高版本
 
 ## 功能特性
 

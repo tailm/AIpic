@@ -3,7 +3,7 @@
 #################################################
 # AIpic - Stable Diffusion Web UI
 # Ubuntu 24.04 Installation Script
-# Optimized for Python 3.13 and NVIDIA RTX 4070 16GB
+# Optimized for Python 3.10 and NVIDIA RTX 4070 16GB
 #################################################
 
 set -e  # Exit on error
@@ -98,9 +98,9 @@ check_system_requirements() {
         PYTHON_VERSION=$($PYTHON_CMD --version 2>&1 | cut -d' ' -f2)
         print_success "Found Python $PYTHON_VERSION"
         
-        # Check if Python 3.13 or higher
-        if [[ "$PYTHON_VERSION" < "3.13" ]]; then
-            print_error "Python 3.13 or higher is required. Found $PYTHON_VERSION"
+        # Check if Python 3.10 or higher
+        if [[ "$PYTHON_VERSION" < "3.10" ]]; then
+            print_error "Python 3.10 or higher is required. Found $PYTHON_VERSION"
             print_info "Will install Python 3.13 from deadsnakes PPA"
         fi
     else
@@ -671,7 +671,7 @@ EOF
 # clone_dir="AIpic"
 
 # Python command
-# python_cmd="python3.13"
+# python_cmd="python3.10"
 
 # Python venv location (no trailing slash)
 # venv_dir="venv"
@@ -886,7 +886,7 @@ create_startup_script() {
 
 #################################################
 # AIpic Startup Script
-# Optimized for Ubuntu 24.04 + Python 3.13 + RTX 4070
+# Optimized for Ubuntu 24.04 + Python 3.10 + RTX 4070
 #################################################
 
 set -e
@@ -1083,7 +1083,7 @@ main() {
     echo ""
     print_success "================================================"
     print_success "AIpic Installation for Ubuntu 24.04"
-    print_success "Optimized for Python 3.13 + NVIDIA RTX 4070 16GB"
+    print_success "Optimized for Python 3.10 + NVIDIA RTX 4070 16GB"
     print_success "================================================"
     echo ""
     

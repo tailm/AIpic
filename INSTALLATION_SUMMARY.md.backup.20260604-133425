@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-已成功为AIpic（Stable Diffusion Web UI）项目创建完整的Ubuntu 24.04安装部署套件，特别针对Python 3.13和NVIDIA RTX 4070 16GB GPU进行优化。
+已成功为AIpic（Stable Diffusion Web UI）项目创建完整的Ubuntu 24.04安装部署套件，特别针对Python 3.10和NVIDIA RTX 4070 16GB GPU进行优化。
 
 ## 创建的文件列表
 
@@ -28,7 +28,7 @@
 ### 安装脚本 (`install_ubuntu_24.sh`)
 - ✅ 自动检测系统配置和硬件
 - ✅ 安装系统依赖和NVIDIA驱动
-- ✅ 配置Python 3.13虚拟环境
+- ✅ 配置Python 3.10虚拟环境
 - ✅ 安装AIpic和所有依赖包
 - ✅ 下载基础Stable Diffusion模型
 - ✅ 优化系统设置（交换空间、swappiness等）
@@ -85,7 +85,7 @@
 
 ### 已验证支持
 - ✅ Ubuntu 24.04 LTS
-- ✅ Python 3.13+
+- ✅ Python 3.10+
 - ✅ NVIDIA RTX 4070 16GB GPU
 - ✅ CUDA 12.1+
 - ✅ cuDNN 8.9+
@@ -121,7 +121,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/tailm/AIpic/main/install
 1. **系统准备**
    ```bash
    sudo apt update
-   sudo apt install -y python3.13 python3.13-venv git wget
+   sudo apt install -y python3.10 python3.10-venv git wget
    ```
 
 2. **NVIDIA驱动**

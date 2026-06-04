@@ -2,7 +2,7 @@
 
 #################################################
 # AIpic Startup Script
-# Optimized for Ubuntu 24.04 + Python 3.13 + RTX 4070
+# Optimized for Ubuntu 24.04 + Python 3.10 + RTX 4070
 #################################################
 
 set -e
